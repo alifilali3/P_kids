@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements
     private static final String KEY_REMEMBER = "remember";
     private static final String KEY_EMAIL = "username";
     private static final String KEY_PASS = "password";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements
         etpassword.addTextChangedListener(this);
         rem_userpass.setOnCheckedChangeListener(this);
 
-
         //gérer le click sur le button SignIn
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +90,24 @@ public class MainActivity extends AppCompatActivity implements
                             }
 
                         });}});
+        //passage a l'interface de création de compte
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Inscrire.class);
+                startActivity(intent);
+            }
+        });
+
+//passage au interface de mot de passe oublier
+        findViewById(R.id.oublier).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Forget_password.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -130,22 +145,6 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
-        //passage a l'interface de création de compte
-        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Inscrire.class);
-                startActivity(intent);
-            }
-        });
-
-//passage au interface de mot de passe oublier
-        findViewById(R.id.oublier).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Forget_password.class);
-                startActivity(intent);
-            }
-        });
 
 }}
+
